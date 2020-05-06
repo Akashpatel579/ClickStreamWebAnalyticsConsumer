@@ -26,11 +26,26 @@ clicks_df = spark \
 #     format("console"). \
 #     start()
 
+# query = clicks_df. \
+#     writeStream. \
+#     queryName("clickevents"). \
+#     format("memory"). \
+#     outputMode("append"). \
+#     start()
+
 query = clicks_df. \
-    writeStream. \
-    queryName("clickevents"). \
-    format("memory"). \
-    outputMode("append"). \
-    start()
+        writeStream. \
+        queryName("clickevents"). \
+        format("parquet"). \
+        option("path", "/Users/akashpatel/Documents/Clairvoyant/dummy/data"). \
+        option("checkpointLocation", "/Users/akashpatel/Documents/Clairvoyant/dummy/cp"). \
+        start()
+
+
+# query = clicks_df. \
+#         writeStream. \
+#         queryName("clickevents"). \
+#         format("jdbc"). \
+#         start("jdbc:mysql//localhost:3306/WebAnalytics","jdbc")
 
 query.awaitTermination()
