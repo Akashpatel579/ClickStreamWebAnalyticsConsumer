@@ -39,4 +39,11 @@ query = clicks_df. \
         option("checkpointLocation", "/Users/akashpatel/Documents/Clairvoyant/dummy/cp"). \
         start()
 
+
+# query = clicks_df. \
+#         writeStream. \
+#         queryName("clickevents"). \
+#         format("jdbc"). \
+#         start("jdbc:mysql//localhost:3306/WebAnalytics","jdbc")
+
 query.awaitTermination()
