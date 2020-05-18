@@ -8,3 +8,6 @@ The file is available under visualization directory.
 
 Once the data is available we can use any viz tool, I have used Plotly visualization. 
 Jupyter notebook file is available under visualization directory. -> click_events_viz.ipynb 
+
+Sample Output : 
+![](/visualization/click_events_output.png)
