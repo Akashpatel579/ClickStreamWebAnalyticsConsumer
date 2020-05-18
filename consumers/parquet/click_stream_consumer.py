@@ -15,6 +15,7 @@ clicks_df = spark \
     .option("subscribe", "click_events") \
     .option("startingOffsets", "latest") \
     .option("inferSchema", "true") \
+    .option("failOnDataLoss", "false") \
     .load() \
     .selectExpr("CAST(value AS STRING)").alias("json_data")  # can remove alias
 
